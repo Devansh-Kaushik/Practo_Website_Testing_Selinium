@@ -7,13 +7,12 @@
   <groupId>Hackthon</groupId>
   <artifactId>hackathon</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  <properties>
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
+  </properties>
 
   <dependencies>
-	  <dependency>
-    <groupId>org.seleniumhq.selenium</groupId>
-    <artifactId>selenium-java</artifactId>
-    <version>4.9.1</version>
-</dependency>
 	<dependency>
         <groupId>org.seleniumhq.selenium</groupId>
         <artifactId>selenium-java</artifactId>
@@ -33,7 +32,7 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.13.1</version>
+      <version>4.11</version>
       <scope>test</scope>
     </dependency>
     
@@ -73,5 +72,6 @@
         </plugin>
       </plugins>
     </pluginManagement>
+ 
   </build>
 </project>
