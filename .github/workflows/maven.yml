@@ -1,4 +1,4 @@
-name: Java CI with Maven and Selenium
+name: Practo_Website_Testing_Selinium
 
 on:
   push:
