@@ -17,8 +17,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-      with:
-        path: Practo_Website_Testing_Selinium
     - name: Set up JDK 17
       uses: actions/setup-java@v3
       with:
@@ -26,12 +24,11 @@ jobs:
         distribution: 'temurin'
         cache: maven
 
-    # Step 1: Copy ChromeDriver for Windows
-    - name: Copy ChromeDriver (Windows)
+    # Step 1: Start Selenium Server with ChromeDriver (Windows)
+    - name: Start Selenium Server with Chrome
       if: startsWith(matrix.os, 'windows-')
       run: |
-        mkdir $HOME/bin
-        cp $GITHUB_WORKSPACE/Practo_Website_Testing_Selinium/Drivers/chromedriver.exe $HOME/bin/chromedriver.exe
+        docker run -d -p 4444:4444 --shm-size=2g selenium/standalone-chrome:latest
 
     # Step 2: Set ChromeDriver PATH
     - name: Set ChromeDriver PATH
