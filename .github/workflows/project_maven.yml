@@ -8,11 +8,7 @@ on:
 jobs:
   build:
 
-    runs-on: ${{ matrix.os }}
-
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
+    runs-on: windows-latest  # Use Windows-based runner
 
     steps:
     - uses: actions/checkout@v3
@@ -23,16 +19,8 @@ jobs:
         distribution: 'temurin'
         cache: maven
 
-    # Step 1: Start Selenium Grid with Chrome (Linux)
-    - name: Start Selenium Grid with Chrome
-      if: startsWith(matrix.os, 'ubuntu-')
-      run: |
-        docker run -d -p 4444:4444 --shm-size=2g selenium/standalone-chrome-debug:latest
-
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
-    # Step 3: Run Selenium tests on Linux
-    - name: Run Selenium Tests
-      if: startsWith(matrix.os, 'ubuntu-')
-      run: mvn test -Dtest=test.TestCases
+    - name: Run Selenium Tests on Windows
+      run: mvn test -Dtest=test.SmokeTests
