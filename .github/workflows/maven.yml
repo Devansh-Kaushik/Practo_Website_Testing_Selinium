@@ -13,7 +13,7 @@ jobs:
 
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, macOS-latest]
+        os: [windows-latest, macOS-latest]
 
     steps:
     - uses: actions/checkout@v3
@@ -23,9 +23,28 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
+
+    # Step 1: Copy ChromeDriver for Windows
+    - name: Copy ChromeDriver (Windows)
+      if: startsWith(matrix.os, 'windows-')
+      run: |
+        mkdir $HOME/bin
+        cp drivers/chromedriver_win.exe $HOME/bin/chromedriver.exe
+
+    # Step 2: Copy ChromeDriver for macOS
+    - name: Copy ChromeDriver (macOS)
+      if: startsWith(matrix.os, 'macOS-')
+      run: |
+        mkdir -p $HOME/bin
+        cp drivers/chromedriver_mac $HOME/bin/chromedriver
+
+    # Step 3: Set ChromeDriver PATH
+    - name: Set ChromeDriver PATH
+      run: echo "##[add-path]$HOME/bin"
+
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
-    # Run Selenium tests on different operating systems
+    # Step 4: Run Selenium tests on different operating systems
     - name: Run Selenium Tests
       run: mvn test -Dtest=test.TestCases
