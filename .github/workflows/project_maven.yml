@@ -12,7 +12,7 @@ jobs:
 
     strategy:
       matrix:
-        os: [ubuntu-latest]
+        os: [ubuntu-latest, macOS-latest]
 
     steps:
     - uses: actions/checkout@v3
@@ -28,10 +28,6 @@ jobs:
       if: startsWith(matrix.os, 'ubuntu-')
       run: |
         docker run -d -p 4444:4444 --shm-size=2g selenium/standalone-chrome-debug:latest
-
-    # Step 2: Set ChromeDriver PATH
-    - name: Set ChromeDriver PATH
-      run: echo "export PATH=$HOME/bin:$PATH" >> $GITHUB_ENV
 
     - name: Build with Maven
       run: mvn -B package --file pom.xml
