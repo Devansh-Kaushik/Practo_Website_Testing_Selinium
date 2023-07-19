@@ -66,6 +66,17 @@ To get started with the project, follow these steps:
 
 This project is developed as part of a hackathon and is intended for learning and demonstration purposes only. The use of web scraping and automation should comply with the website's terms of service and legal requirements. The developers are not responsible for any misuse of the provided code or its consequences.
 
+
+## Contributions
+
+Contributions to the project are welcome! If you would like to contribute, please follow these guidelines:
+
+Fork the repository and create a new branch for your contribution.
+Make your changes and ensure they adhere to the project's coding conventions.
+Test your changes thoroughly to avoid any potential issues.
+Submit a pull request with a clear description of the changes you've made.
+Your contribution will be reviewed, and once approved, it will be merged into the main branch.
+We appreciate any contributions, whether it's bug fixes, feature enhancements, or documentation improvements.
 Feel free to contribute, modify, or enhance the project as per your requirements and creativity! Happy hacking!
 
 ## License
