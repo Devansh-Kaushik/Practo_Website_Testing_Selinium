@@ -44,7 +44,7 @@ public class TopCities{
 	        DriverSetup.takeScreenshot("TopCitiesFailed");
 		}
 		
-		
+		Thread.sleep(2000);
 		driver.quit();
 	}
 
