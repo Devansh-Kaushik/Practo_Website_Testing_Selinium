@@ -29,7 +29,7 @@ jobs:
       if: startsWith(matrix.os, 'windows-')
       run: |
         mkdir $HOME/bin
-        cp Practo_Website_Testing_Selinium/Drivers/chromedriver.exe $HOME/bin/chromedriver.exe
+        cp $GITHUB_WORKSPACE/Drivers/chromedriver.exe $HOME/bin/chromedriver.exe
 
     # Step 2: Set ChromeDriver PATH
     - name: Set ChromeDriver PATH
