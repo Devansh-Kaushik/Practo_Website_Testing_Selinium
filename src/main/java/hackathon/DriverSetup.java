@@ -41,7 +41,7 @@ public class DriverSetup
 		
     	if(ch==1)
     	{
-    		System.setProperty("webdriver.chrome.driver", "Drivers\\chromedriver.exe");
+    		System.setProperty("webdriver.chrome.driver", "Drivers/chromedriver.exe");
     		ChromeOptions options = new ChromeOptions();
     		options.addArguments("--start-maximized");
     		options.addArguments("--disable-extensions");
@@ -51,7 +51,7 @@ public class DriverSetup
     	}
     	else if(ch==2)
     	{
-    		System.setProperty("webdriver.gecko.driver", "Drivers\\geckodriver.exe");
+    		System.setProperty("webdriver.chrome.driver", "Drivers/geckodriver.exe");
     		EdgeOptions options = new EdgeOptions();
     		options.addArguments("--start-maximized");
     		options.addArguments("--disable-infobars");
