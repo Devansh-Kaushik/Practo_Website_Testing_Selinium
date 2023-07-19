@@ -13,7 +13,7 @@ jobs:
 
     strategy:
       matrix:
-        os: [ubuntu-latest]
+        os: [windows-latest]
 
     steps:
     - uses: actions/checkout@v3
@@ -24,11 +24,11 @@ jobs:
         distribution: 'temurin'
         cache: maven
 
-    # Step 1: Start Selenium Server with ChromeDriver (Windows)
-    - name: Start Selenium Server with Chrome
+    # Step 1: Start Selenium Grid with Chrome (Windows)
+    - name: Start Selenium Grid with Chrome
       if: startsWith(matrix.os, 'windows-')
       run: |
-        docker run -d -p 4444:4444 --shm-size=2g selenium/standalone-chrome:latest
+        docker run -d -p 4444:4444 --shm-size=2g selenium/standalone-chrome-debug:latest
 
     # Step 2: Set ChromeDriver PATH
     - name: Set ChromeDriver PATH
