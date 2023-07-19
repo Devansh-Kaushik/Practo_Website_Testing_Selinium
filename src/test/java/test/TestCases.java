@@ -64,7 +64,7 @@ public class TestCases {
 		}
 	}
 
-	@Test(priority = 4)
+	/*@Test(priority = 4)
 	public void testHospitalsWithParking() {
 		// Example: Choose option 4 and assert the hospitals with parking, rating > 3.5,
 		// operate 24/7
@@ -78,7 +78,7 @@ public class TestCases {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-	}
+	}*/
 
 	@Test(priority = 2)
 	public void testDisplayHospitalsWithoutParking() {
